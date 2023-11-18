@@ -64,7 +64,7 @@ int main() {
     Vec2<uint16_t, uint8_t> pos{255 / 2, 255 / 2};
     void reset() {
       // resets position but keeps velocity
-      pos = makeVec2(255 / 2, 255 / 2);
+      pos = Vec2{255 / 2, 255 / 2};
       Sprites::setPos(0, pos);
     }
     void updatePosition() { Sprites::setPos(0, pos); }
@@ -81,7 +81,7 @@ int main() {
     if (const auto collisions = Sprites::collisions();
         collisions.s0 && (collisions.s1 || collisions.s2)) {
       // ball hit paddle, invert ball x velocity
-      ball.velocity *= makeVec2(-1, 1);
+      ball.velocity *= Vec2{-1, 1};
       // "bounce" ball out of collision area
       ball.pos.x += (ball.velocity.x * 3);
     }
@@ -100,7 +100,7 @@ int main() {
     if (const auto [ball_x, ball_y] = ball.pos += ball.velocity;
         ball_y == 46 || ball_y == 234) {
       // ball hit the top or bottom wall, invert ball y velocity
-      ball.velocity *= makeVec2(1, -1);
+      ball.velocity *= Vec2{1, -1};
     } else if (ball_x < 22) {
       // ball hit left wall, player 2 scored
       score(p2, ball);

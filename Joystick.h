@@ -18,8 +18,7 @@ struct JoyStick {
   JoyStick(Port port) : dataPort(port == Port::B ? CIA1.pra : CIA1.prb) {}
 
   auto direction() const {
-    return makeVec2(left() ? -1 : (right() ? 1 : 0),
-                    up() ? -1 : (down() ? 1 : 0));
+    return Vec2{left() ? -1 : (right() ? 1 : 0), up() ? -1 : (down() ? 1 : 0)};
   }
 
   volatile uint8_t &dataPort;

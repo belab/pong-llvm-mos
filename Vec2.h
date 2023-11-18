@@ -45,6 +45,3 @@ template <class T1, class T2 = T1> struct Vec2 {
   }
 };
 
-template <class T1, class T2> Vec2<T1, T2> makeVec2(T1 x, T2 y) {
-  return {x, y};
-}
